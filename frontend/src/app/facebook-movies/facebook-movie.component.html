@@ -1,0 +1,18 @@
+<div class="background-picture">
+    <div style="filter: none; z-index: 1;">
+        <div class="improve-suggestion-wrapper no-blur" *ngIf="likedMovies?.length">
+            <h3 *ngIf="likedMovies?.length">Movies that you like</h3>
+            <div class="to-watch" style="filter: none;">
+                <app-movie-tile
+                    *ngFor="let movie of likedMovies"
+                    [imageUrl]="movie.moviePoster"
+                    [title]="movie.title"
+                    [rating]="movie.rating"
+                    [id]="movie.movieId"
+                    [isFav]="movie.isLiked"
+                    (favClick)="onFavClick(movie)"
+                ></app-movie-tile>
+            </div>
+        </div>
+    </div>
+</div>

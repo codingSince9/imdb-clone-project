@@ -1,0 +1,30 @@
+<div class="background-picture">
+    <div class="suggested-movies-wrapper" *ngIf="suggestedMovies?.length==0">
+        <div style="border-radius: 10px; background-color: black; padding: 10px;">
+            <h3 style="color: white; opacity: 1 !important;">Please first choose movies that you like</h3>
+        </div>
+        <button class="btn" (click)="chooseFilms()">Choose movies</button>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1 style="margin-top: 70px;">&nbsp;</h1>
+    </div>
+
+    <div class="suggested-movies-wrapper" *ngIf="suggestedMovies?.length">
+        <div style="border-radius: 10px; background-color: white; padding: 10px;">
+            <h3 *ngIf="suggestedMovies?.length" style="color: black; opacity: 1 !important;">Based on your favourites</h3>
+        </div>
+           <div class="to-watch" style="margin-left: 70px;">
+        <div class="movie-tile-wrapper" *ngFor="let movie of suggestedMovies">
+                <div>
+                    <div class="poster-wrapper">
+                        <img [src]="movie.moviePoster" width="200px" height="300px" class="clickable" (click)="sendDataToDetails()" routerLink="/movies/{{movie.movieId}}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

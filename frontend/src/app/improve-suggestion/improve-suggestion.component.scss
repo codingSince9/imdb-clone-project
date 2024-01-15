@@ -1,0 +1,75 @@
+.improve-suggestion-wrapper {
+    margin-top: 0px;
+    margin-bottom: 50px;
+    height: auto;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    .to-watch {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 15px;
+    }
+  }
+
+  .background-picture {
+    background-image: url(https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1159&q=80);
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+  }
+
+.btn {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.searchFrano {
+  display: flex;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 35%;
+  margin: auto;
+  flex-grow: 0;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 35%;
+  margin: auto;
+}
+
+input[type="text"] {
+  border: none;
+  padding: 0 10px;
+  flex-grow: 1;
+}
+
+button[type="submit"] {
+  border: none;
+  background-color: #0074d9;
+  color: white;
+  padding: 0 15px;
+  font-size: 16px;
+  width: 25%;
+}
+
+button[type="submit"]:hover {
+  background-color: #0088ff;
+  cursor: pointer;
+}

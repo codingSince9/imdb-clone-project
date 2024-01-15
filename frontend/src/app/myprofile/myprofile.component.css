@@ -1,0 +1,29 @@
+.background-picture {
+    background-image: url(https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1159&q=80);
+    height: 100%;
+    background-size: 100% auto;
+}
+
+.profile-container {
+    width: 400px;
+    margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: auto;
+}
+
+td {
+    text-align: left;
+    padding: 10px;
+}
+
+td img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}

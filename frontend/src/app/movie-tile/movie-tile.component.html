@@ -1,0 +1,10 @@
+<div class="movie-tile-wrapper" style="filter: none;">
+    <div>
+        <div class="poster-wrapper">
+            <img [src]="imageUrl" width="200px" height="300px" class="clickable" (click)="sendDataToDetails()" routerLink="/movies/{{id}}"/>
+        </div>
+        <div class="icon-bar">
+            <fa-icon [icon]="faFav" (click)="onFavClick()" style="color: red;"></fa-icon>
+        </div>
+    </div>
+</div>

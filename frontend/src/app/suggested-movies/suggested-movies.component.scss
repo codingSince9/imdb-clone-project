@@ -1,0 +1,64 @@
+.suggested-movies-wrapper {
+  margin-top: 0px;
+  margin-bottom: 50px;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+
+  .to-watch {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+  }
+}
+.movie-tile-wrapper {
+  max-width: 200px;
+  max-height: 300px;
+
+  .poster-wrapper {
+    img {
+      transition: all 0.5s ease;
+    }
+
+    :hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .icon-bar {
+    background-color: rgba(255, 255, 255, 0.4);
+    position: relative;
+    bottom: 29px;
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+    overflow: hidden;
+  }
+
+  .icon-bar:hover {
+    bottom: 29px;
+    transform: scale(2);
+  }
+
+}
+
+.background-picture {
+  background-image: url(https://imgs.search.brave.com/ikE5KpcEhQ2TuJHzgNK3EvwzOYWKOZ51twmGjFYIGmg/rs:fit:585:626:1/g:ce/aHR0cHM6Ly9pbWFn/ZS5mcmVlcGlrLmNv/bS9mcmVlLXZlY3Rv/ci9maWxtLW1vdmll/LXdoaXRlLWJhY2tn/cm91bmQtdmVjdG9y/LWlsbHVzdHJhdGlv/bl8yNDkwOC0zNjQy/NC5qcGc);
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+}
+
+.btn {
+  width: 30%;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}

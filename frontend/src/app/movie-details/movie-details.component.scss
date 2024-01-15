@@ -1,0 +1,163 @@
+.actor-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 500px;
+    margin-left: 10px;
+}
+
+.actor-card {
+    width: 20%;
+    text-align: center;
+}
+
+.actor-card img {
+    width: 80%;
+    height: 70%;
+    border-radius: 50%;
+}
+
+.movie-details {
+    display: flex;
+    width: 800px;
+    margin: 20px;
+}
+
+.movie-details .poster {
+    width: 300px;
+    height: 450px;
+}
+
+.movie-details .poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-details .details {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.movie-details .details .title {
+    font-size: 36px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+
+.movie-details .details .rating {
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.movie-details .details .votes {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.movie-details .details .genres {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.movie-details .details .duration {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+
+.movie-details .details .description {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+
+.movie-details .details .play-button {
+    background-color: #00bfff;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.movie-details .details .play-button:hover {
+    background-color: #00b2ff;
+}
+.column {
+    float: left;
+}
+
+.column.right {
+    width: 70%;
+}
+
+.column.right .movie-details {
+    padding: 20px;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.column.right .movie-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.column.right .movie-details p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.column.right .movie-details .rating {
+    font-size: 18px;
+    font-weight: bold;
+    color: tomato;
+}
+
+.column.right .movie-details .cast-list {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.column.right .movie-details .cast-list li {
+    margin-bottom: 10px;
+}
+
+.movie-tile-wrapper {
+
+    .poster-wrapper {
+        img {
+            transition: all 0.5s ease;
+        }
+
+        :hover {
+            transform: scale(1.1);
+        }
+    }
+
+    .icon-bar {
+        background-color: rgba(255, 255, 255, 0.4);
+        position: relative;
+        bottom: 29px;
+        display: flex;
+        justify-content: space-around;
+        gap: 5px;
+        overflow: hidden;
+    }
+
+    .icon-bar:hover {
+        bottom: 29px;
+        transform: scale(1);
+    }
+}
+
+.bg-image {
+    background-image: url(https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1159&q=80);
+    background-repeat: repeat;
+    background-size: 100% auto;
+}

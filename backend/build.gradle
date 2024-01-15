@@ -1,0 +1,36 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'java'
+}
+
+group = 'lab1'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-data-cassandra'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	implementation group: 'com.github.holgerbrandl', name: 'themoviedbapi', version:'1.12'
+	implementation 'com.google.apis:google-api-services-books:v1-rev20220318-2.0.0'
+	implementation 'com.google.http-client:google-http-client-jackson2:1.39.2'
+	// add implementation google api client gson factory
+	implementation 'com.google.api-client:google-api-client-gson:1.31.5'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

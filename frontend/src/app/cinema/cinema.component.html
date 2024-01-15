@@ -1,0 +1,26 @@
+<div class="containter">
+    <h1 class="text-center">Search cinemas</h1>
+    <div class="searchFrano">
+        <input type="text" #search class="form-control" placeholder="Search..." (keyup.enter)="getCinemas(search.value)">
+        <button type="submit" (click)="getCinemas(search.value)">Find</button>
+    </div>
+</div>
+
+<div class="table-container">
+  <table class="table" *ngIf="cinemaList.length">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cinema</th>
+        <th scope="col">Address</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="clickable" *ngFor="let cinema of cinemaList; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td><a style="color: lightblue;" href="https://www.google.com/search?q={{cinema.title}}" target="_blank">{{ cinema.title }}</a></td>
+        <td>{{ cinema.address.street != undefined ? cinema.address.street : ''}} {{ cinema.address.houseNumber != undefined ? cinema.address.houseNumber : ''}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

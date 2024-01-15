@@ -1,0 +1,90 @@
+.watch-list-wrapper {
+  margin-top: 0px;
+  margin-bottom: 50px;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+
+  .to-watch {
+    display: flex;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+form {
+  display: flex;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 35%;
+  margin: auto;
+}
+
+.searchFrano {
+  display: flex;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 35%;
+  margin: auto;
+  flex-grow: 0;
+}
+
+input[type="text"] {
+  border: none;
+  padding: 0 10px;
+  flex-grow: 1;
+}
+
+button[type="submit"] {
+  border: none;
+  background-color: #0074d9;
+  color: white;
+  padding: 0 15px;
+  font-size: 16px;
+  width: 25%;
+}
+
+button[type="submit"]:hover {
+  background-color: #0088ff;
+  cursor: pointer;
+}
+
+.movie-tile-wrapper {
+  max-width: 200px;
+  max-height: 300px;
+
+  .poster-wrapper {
+    img {
+      transition: all 0.5s ease;
+    }
+
+    :hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .icon-bar {
+    background-color: rgba(255, 255, 255, 0.4);
+    position: relative;
+    bottom: 29px;
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+    overflow: hidden;
+  }
+
+  .icon-bar:hover {
+    bottom: 29px;
+    transform: scale(2);
+  }
+}

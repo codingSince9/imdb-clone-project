@@ -1,0 +1,37 @@
+<div class="bg-image">
+    <div class="column normal" style="width: 70%;">
+        <div class="movie-details">
+            <div class="poster">
+                <img [src]="movie.moviePoster">
+            </div>
+            <div class="details">
+                <div class="title">{{ movie.title }}</div>
+                <div class="rating">Rating: &#9733; {{ movie.rating }}</div>
+                <div class="votes">Votes: {{ movie.votes }}</div>
+                <div class="genres">Genres: {{ movie.genres }}</div>
+                <div class="duration">Duration: {{ movie.duration }} minutes</div>
+                <div class="description">{{ movie.description }}</div>
+            </div>
+        </div>
+        <div style="margin-left: 20px; margin-bottom: 20px;">
+            <h3>Trailer: </h3><youtube-player [videoId]="videoId"> </youtube-player>
+        </div>
+        <h3 style="margin-left: 20px; margin-bottom: 20px;">Actors: </h3>
+        <div class="actor-grid">
+            <div *ngFor="let actor of actorsMap | keyvalue; let i = index" class="actor-card">
+                <img src="{{actor.value}}" alt="{{actor.key}}">
+                <div class="actor-name">{{actor.key}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="column" style="width: 30%;">
+        <h2 style="margin-left: 20px; margin-top: 10px;">Similar Movies</h2>
+        <div *ngFor="let movie1 of similarMovies">
+            <img src="{{movie1.moviePoster}}"
+            class="clickable movie-tile-wrapper"
+            (click)="sendDataToDetails()"
+            style="border-radius: 20%; height: 300px; width: 240px; margin-bottom: 10px; margin-top: 10px;"
+            routerLink="/movies/{{movie1.movieId}}">
+        </div>
+    </div>
+</div>

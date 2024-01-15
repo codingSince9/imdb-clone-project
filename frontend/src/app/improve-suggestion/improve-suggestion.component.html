@@ -1,0 +1,44 @@
+<div class="background-picture">
+    <div class="jumbotron">
+        <div class="containter">
+            <h1 class="text-center">Search movies</h1>
+            <div class="searchFrano">
+                <input type="text" #search class="form-control" placeholder="Search..." (keyup.enter)="getMoviesBySearch(search.value)">
+                <button type="submit" (click)="getMoviesBySearch(search.value)">Find</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="filter: none; z-index: 1;">
+        <div class="improve-suggestion-wrapper no-blur" *ngIf="likedMovies?.length">
+            <h3 *ngIf="likedMovies?.length" style="background-color: black; border-radius: 10px;">&nbsp;Liked movies&nbsp;</h3>
+            <div class="to-watch" style="filter: none;">
+                <app-movie-tile
+                    *ngFor="let movie of likedMovies"
+                    [imageUrl]="movie.moviePoster"
+                    [title]="movie.title"
+                    [rating]="movie.rating"
+                    [id]="movie.movieId"
+                    [isFav]="movie.isLiked"
+                    (favClick)="onFavClick(movie)"
+                ></app-movie-tile>
+            </div>
+            <button class="btn" (click)="getSuggestedMovies()">Get suggested movies</button>
+        </div>
+        <div class="improve-suggestion-wrapper no-blur" *ngIf="notLikedMovies?.length">
+            <h3 *ngIf="movies?.length < 1">Loading...</h3>
+            <h1 *ngIf="movies?.length" style="background-color: black; border-radius: 10px;">&nbsp;Choose movies that you like&nbsp;</h1>
+            <div class="to-watch" style="filter: none;">
+                <app-movie-tile
+                    *ngFor="let movie of notLikedMovies"
+                    [imageUrl]="movie.moviePoster"
+                    [title]="movie.title"
+                    [rating]="movie.rating"
+                    [id]="movie.movieId"
+                    [isFav]="movie.isLiked"
+                    (favClick)="onFavClick(movie)"
+                ></app-movie-tile>
+            </div>
+        </div>
+    </div>
+</div>

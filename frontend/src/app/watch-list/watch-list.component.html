@@ -1,0 +1,27 @@
+<div class="background-picture">
+    <div class="jumbotron">
+        <div class="containter">
+            <h1 class="text-center">Search movies</h1>
+            <div class="searchFrano">
+                <input type="text" #search class="form-control" placeholder="Search..." (keyup.enter)="getMoviesBySearch(search.value)">
+                <button type="submit" (click)="getMoviesBySearch(search.value)">Find</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="watch-list-wrapper">
+        <h3 *ngIf="movies?.length < 1 && emptyResultOfSearch">The movie you were looking for was not found!</h3>
+        <h3 *ngIf="movies?.length < 1 && !emptyResultOfSearch">Loading...</h3>
+        <h3 *ngIf="movies?.length && !emptyResultOfSearch">Popular Movies</h3>
+        <div class="to-watch" *ngIf="movies?.length && !emptyResultOfSearch">
+            <div class="movie-tile-wrapper" *ngFor="let movie of movies">
+                <div>
+                    <div class="poster-wrapper">
+                        <img [src]="movie.moviePoster" width="200px" height="300px" class="clickable" (click)="sendDataToDetails()" routerLink="/movies/{{movie.movieId}}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
