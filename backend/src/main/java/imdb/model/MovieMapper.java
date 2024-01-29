@@ -1,4 +1,4 @@
-package lab1.lab1backend.model;
+package imdb.model;
 
 import org.springframework.stereotype.Component;
 

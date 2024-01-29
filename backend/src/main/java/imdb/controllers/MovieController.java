@@ -1,23 +1,26 @@
-package lab1.lab1backend.controllers;
-
+package imdb.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbMovies;
-import info.movito.themoviedbapi.TmdbReviews;
 import info.movito.themoviedbapi.model.*;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
-import info.movito.themoviedbapi.model.core.ResultsPage;
 import info.movito.themoviedbapi.model.people.PersonCast;
 import info.movito.themoviedbapi.model.people.PersonCrew;
-import lab1.lab1backend.model.*;
-import lab1.lab1backend.repository.MoviePreferenceRepository;
-import lab1.lab1backend.repository.MovieRepository;
-import lab1.lab1backend.repository.PopularMovieRepository;
-import lab1.lab1backend.repository.ReviewRepository;
+import imdb.model.*;
+import imdb.model.Movie;
+import imdb.model.MovieMapper;
+import imdb.model.MoviePreference;
+import imdb.model.PopularMovie;
+import imdb.model.Review;
+import imdb.repository.MoviePreferenceRepository;
+import imdb.repository.MovieRepository;
+import imdb.repository.PopularMovieRepository;
+import imdb.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,18 +35,18 @@ public class MovieController {
 
     @Autowired
     private MovieRepository movieRepository;
-
     @Autowired
     private MoviePreferenceRepository moviePreferenceRepository;
-
     @Autowired
     private ReviewRepository reviewRepository;
-
     @Autowired
     private PopularMovieRepository popularMovieRepository;
+    @Value("${imdb.clone.tmdb.api}")
+    private String tmdbApiKey;
+    @Value("${imdb.clone.facebook.api}")
+    private String facebookApiKey;
 
-    TmdbMovies movies = new TmdbApi("65210b0eb218b694f5047ae80a00ba2f").getMovies();
-    private boolean initial = true;
+    TmdbMovies movies = new TmdbApi(tmdbApiKey).getMovies();
 
     public Movie initializeMovie(MovieDb movie) {
         Movie movieToStore = new Movie();
@@ -115,23 +118,13 @@ public class MovieController {
             for (int i = 1; i <= 100; i++) {
                 System.out.println(i);
                 MovieResultsPage movieResultsPage = movies.getTopRatedMovies("en", i);
-                System.out.println(i + ",1 generateData");
 
                 List<MovieDb> moviesResult = movieResultsPage.getResults();
                 for(int j = 0; j < moviesResult.size(); j++) {
                     Movie movieToStore = initializeMovie(moviesResult.get(j));
                     moviesToStore.add(movieToStore);
                 }
-                /*for (MovieDb movie : moviesResult) {
-                    Movie movieToStore = initializeMovie(movie);
-                    moviesToStore.add(movieToStore);
-//                    movieRepository.save(movieToStore);
-                }*/
-                System.out.println(i + ",2 generateData");
-
             }
-            System.out.println("Prije spremanja generatedata");
-
             movieRepository.saveAll(moviesToStore);
             long endTime = System.currentTimeMillis();
             System.out.println("Time to generate data: " + (endTime - startTime) + "ms");
@@ -165,12 +158,8 @@ public class MovieController {
             Movie movie = initializeMovie(movieDb);
             PopularMovie popularMovie = MovieMapper.toPopularMovie(movie);
             popularMoviesToStore.add(popularMovie);
-//            popularMovieRepository.save(popularMovie);
         }
-        System.out.println("Prije spremanja popularmovies");
         popularMovieRepository.saveAll(popularMoviesToStore);
-        System.out.println("Poslije spremanja popularmovies");
-
     }
 
     @GetMapping("/popular")
@@ -271,11 +260,9 @@ public class MovieController {
     }
 
     private double calculateProbability(Movie movie, MoviePreference moviePreference) {
-
         Map<String, Integer> genreMap = moviePreference.getGenrePreference();
         Map<String, Integer> directorMap = moviePreference.getDirectorPreference();
         double probability = 0;
-//        System.out.println(movie.getGenres());
         if (!Objects.equals(movie.getGenres().get(0), "No genres")) {
             for (String genre : movie.getGenres()) {
                 if (genreMap.containsKey(genre)) {
@@ -347,7 +334,7 @@ public class MovieController {
     @GetMapping("/getFacebookMovies/{userId}/{authToken}")
     public List<Movie> getFacebookMovies(@PathVariable String userId, @PathVariable String authToken) throws JsonProcessingException {
         List<Movie> facebookMovies = new ArrayList<>();
-        String accessToken = "EAANcQWsbgSYBAEvCxE6k9DYhKykGKscQdGGoZCZAoJkUObRPCbUNbpmfcyxXMlXRt2ZCuuchFVi0RdydBDbHHTZCXqMp28FqM6AcNZBPcqh6Mw2wZBiScUE6GTpkqSiS5onbJEh37ya68Rwh7YVYWZC5bFxfDFthf8p3QHLCp28zAZDZD";
+        String accessToken = facebookApiKey;
         String url = "https://graph.facebook.com/" + userId + "/movies?access_token=" + accessToken;
 
         RestTemplate restTemplate = new RestTemplate();

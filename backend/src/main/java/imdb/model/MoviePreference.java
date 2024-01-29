@@ -1,20 +1,21 @@
-package lab1.lab1backend.model;
+package imdb.model;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+import java.util.Map;
+
 @Table
 @Getter
 @Setter
-public class Review {
+public class MoviePreference {
 
     @PrimaryKey
-    private String userName;
-    private int movieId;
+    private String userId;
     private double rating;
-    private String comment;
-    private String pictureURL;
+    private Map<String, Integer> genrePreference;
+    private Map<String, Integer> directorPreference;
 
 }

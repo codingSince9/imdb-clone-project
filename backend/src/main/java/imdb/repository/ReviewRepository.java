@@ -1,6 +1,6 @@
-package lab1.lab1backend.repository;
+package imdb.repository;
 
-import lab1.lab1backend.model.Review;
+import imdb.model.Review;
 import org.springframework.data.cassandra.repository.AllowFiltering;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.cassandra.repository.Query;

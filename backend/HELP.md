@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'lab1.lab1-backend' is invalid and this project uses 'lab1.lab1backend' instead.
+* The original package name 'imdb.imdb-backend' is invalid and this project uses 'imdb.lab1backend' instead.
 
 # Getting Started
 

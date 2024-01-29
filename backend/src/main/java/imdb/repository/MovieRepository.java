@@ -1,13 +1,12 @@
-package lab1.lab1backend.repository;
+package imdb.repository;
 
-import lab1.lab1backend.model.Movie;
+import imdb.model.Movie;
 import org.springframework.data.cassandra.repository.AllowFiltering;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.cassandra.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public interface MovieRepository extends CassandraRepository<Movie, Integer> {
 

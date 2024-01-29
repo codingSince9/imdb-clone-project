@@ -1,14 +1,13 @@
-package lab1.lab1backend.controllers;
+package imdb.controllers;
 
-import lab1.lab1backend.model.User;
-import lab1.lab1backend.repository.UserRepository;
+import imdb.model.User;
+import imdb.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")

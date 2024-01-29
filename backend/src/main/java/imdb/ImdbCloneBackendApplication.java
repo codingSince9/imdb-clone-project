@@ -1,13 +1,13 @@
-package lab1.lab1backend;
+package imdb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Lab1BackendApplication {
+public class ImdbCloneBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Lab1BackendApplication.class, args);
+		SpringApplication.run(ImdbCloneBackendApplication.class, args);
 	}
 
 }

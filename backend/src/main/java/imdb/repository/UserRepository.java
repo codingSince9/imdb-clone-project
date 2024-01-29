@@ -1,8 +1,8 @@
-package lab1.lab1backend.repository;
+package imdb.repository;
 
 import java.util.List;
 
-import lab1.lab1backend.model.User;
+import imdb.model.User;
 import org.springframework.data.cassandra.repository.AllowFiltering;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.cassandra.repository.Query;

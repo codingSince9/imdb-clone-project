@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-group = 'lab1'
+group = 'imdb-clone'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
